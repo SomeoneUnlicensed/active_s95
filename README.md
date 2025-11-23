@@ -1,145 +1,120 @@
-# s95Admin
-[![Gem Version](https://img.shields.io/gem/v/active_s95.svg)](https://rubygems.org/gems/active_s95)
-[![Gem Downloads](https://img.shields.io/gem/dt/active_s95.svg)](https://rubygems.org/gems/active_s95)
-[![Gem Version](https://img.shields.io/npm/v/active_s95.svg)](https://www.npmjs.com/package/active_s95)
-[![Gem Downloads](https://img.shields.io/npm/dt/active_s95.svg)](https://www.npmjs.com/package/active_s95)
+#  Active S95
 
-Simple theme for ActiveAdmin :ok_hand:
 
->**Complete demo here : https://s95admin.osc-fr1.scalingo.io**
->
->*admin user : admin@example.com / password*
+##  Installation
 
-![Screenshot](doc/index.png)
-
-## Installation
-
-### For Sprockets users
-
-- Add this to your Gemfile:
+Add this line to your application's Gemfile:
 
 ```ruby
 gem 'active_s95'
 ```
 
-- Run `bundle install`.
-
-- Add this line to the file `config/initializers/active_admin.rb`
-
-```ruby
-meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
-config.meta_tags = meta_tags_options
-config.meta_tags_for_logged_out_pages = meta_tags_options
-```
-
-### For webpacker / jsbundling-rails or other JS-based asset solutions
-
-Install the needed assets with npm or yarn:
+Then execute:
 
 ```bash
-yarn add active_s95 @fortawesome/fontawesome-free
+bundle install
 ```
 
-## Use with Sprockets
+Or install it yourself:
 
-### 1a - CSS
-
-In your `active_admin.css`, include the css file:
-
-```css
-/*
- *= require active_s95/base
- */
+```bash
+gem install active_s95
 ```
 
-**Remove the line `*= require active_admin/base`**
+##  Usage
 
-Then restart your webserver if it was previously running.
+### Basic Setup
 
-### 1b - Sass Support
-
-:exclamation: **Remove the line `@import "active_admin/base"`**
-
-If you prefer [SCSS](http://sass-lang.com/documentation/file.SASS_REFERENCE.html), add this to your
-`active_admin.scss` file:
+In your ActiveAdmin stylesheet (`app/assets/stylesheets/active_admin.scss`), replace the default import with:
 
 ```scss
-@import "active_s95/base";
+@import "active_s95";
 ```
 
-If you use the
-[Sass indented syntax](http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html),
-add this to your `active_admin.sass` file:
+### JavaScript Setup
 
-```sass
-@import active_s95/base
+In your ActiveAdmin JavaScript file (`app/assets/javascripts/active_admin.js`), add:
+
+```javascript
+//= require active_s95/main
 ```
 
-### 2 - JS
+That's it! Your ActiveAdmin interface will now use the Active S95 theme.
 
-In your `active_admin.js`, include the js file:
 
-```js
-//= require active_s95/base
-```
 
-:exclamation:  **Remove the line `//= require active_admin/base`**
+### Overriding Styles
 
-## Use with webpacker
-
-### 1 - CSS
-
-In your `app/javascript/stylesheets/active_admin.scss`, add the line:
+You can customize the theme by adding your own styles after the import:
 
 ```scss
-@import '~active_s95/src/scss/main';
+@import "active_s95";
+
+// Your custom overrides
+.active_admin {
+  // Custom styles here
+}
 ```
 
-Remove:
+### Color Scheme
+
+The theme uses a carefully crafted color palette. You can override variables before importing:
 
 ```scss
-@import "~@activeadmin/activeadmin/src/scss/mixins";
-@import "~@activeadmin/activeadmin/src/scss/base";
+// Define your custom colors
+$primary-color: #your-color;
+$secondary-color: #your-color;
+
+@import "active_s95";
 ```
 
-### 2 - JS
+##  Development
 
-Search for `app/javascript/packs/active_admin.js` in your rails project and add the following lines:  
+### Prerequisites
 
-```js
-import "@fortawesome/fontawesome-free/css/all.css";
-import 'active_s95'
+- Ruby 2.5+
+- Bundler ~> 1.5
+- ActiveAdmin >= 1.1.0
+
+### Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/SomeoneUnlicensed/active_s95.git
+cd active_s95
 ```
 
+Install dependencies:
 
-### Customization
-
-For this, you need to use SASS to customize the theming.
-
-Right now you can change the primary color of the theme by placing the following variable in your `active_admin.scss` file:
-
-```scss
-$primary-color: #2dbb43;
-
-@import "~active_s95/src/scss/main";
+```bash
+bundle install
+yarn install  # or npm install
 ```
 
-If you use the
-[Sass indented syntax](http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html),
-add this to your `active_admin.sass` file:
+### Building
 
-```sass
-$primary-color: #2dbb43
+To prepare the package for publishing:
 
-@import ~active_s95/src/scss/main
+```bash
+yarn prepublishOnly
 ```
 
-Then restart your webserver if it was previously running.
+This will copy assets to the `src` directory for distribution.
 
-## Contributing
+##  Requirements
 
-1. Fork it ( https://github.com/SomeoneUnlicensed/active_s95/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+- **ActiveAdmin**: 1.1.0 - 3.x
+- **Font Awesome Sass**: ~> 6.0
+- **Ruby**: 2.5+
+
+##  Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
