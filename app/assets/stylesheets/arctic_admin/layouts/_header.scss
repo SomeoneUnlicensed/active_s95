@@ -47,7 +47,7 @@ body.active_admin.logged_in {
     @media screen and (min-width: $x-lg-width) {
       width: $lg-header-width;
     }
-    
+
     #site_title_image {
       height: 100%;
       padding: 6px 0;
@@ -180,7 +180,7 @@ body.active_admin.logged_in {
         }
 
       }
-      
+
       @media screen and (min-width: $sm-width) {
         min-width: 60px;
         min-height: 59px;
@@ -201,25 +201,47 @@ body.active_admin.logged_in {
 
 #title_bar {
   background-color: #fff;
-  @include box-shadow($box-shadow);
+  @include box-shadow($box-shadow-card);
   margin: 15px 0 0 0;
-  padding: 8px 10px;
+  padding: 12px 15px;
   @include clear-fix();
+  border-radius: $border-radius-small;
+
+  @media screen and (max-width: $sm-width) {
+    padding: 10px 12px;
+    margin: 10px 0 0 0;
+  }
 
   @media screen and (min-width: $lg-width) {
-    padding: 8px 20px;
-    border-radius: $border-radius;
+    padding: 12px 24px;
+    border-radius: $border-radius-card;
     margin: 15px 25px 0 25px;
   }
 
   #titlebar_left {
     display: inline-block;
     float: left;
-    line-height: 29px;
+    line-height: 32px;
+
+    @media screen and (max-width: $sm-width) {
+      line-height: 28px;
+      width: 100%;
+      float: none;
+      margin-bottom: 10px;
+    }
 
     h2 {
       display: inline-block;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 800;
+      color: $indigo-dark;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      @media screen and (max-width: $sm-width) {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+      }
     }
   }
 
@@ -227,14 +249,51 @@ body.active_admin.logged_in {
     display: inline-block;
     float: right;
 
+    @media screen and (max-width: $sm-width) {
+      float: none;
+      width: 100%;
+    }
+
     .action_item a {
-      @include primary-button($button-primary-color, #fff);
-      padding: 5px 8px;
+      background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
+      color: #fff;
+      border: none;
+      border-radius: $border-radius-button;
+      padding: 8px 16px;
+      font-weight: 600;
+      box-shadow: $box-shadow;
+      transition: all 0.3s ease;
+      display: inline-block;
+
+      @media screen and (max-width: $sm-width) {
+        padding: 8px 14px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+
+      &:hover {
+        box-shadow: $box-shadow-hover;
+        transform: translateY(-2px);
+
+        @media screen and (max-width: $md-width) {
+          transform: none;
+        }
+      }
     }
   }
 
   #page_title {
-    font-weight: normal;
+    font-weight: 800;
     margin: 0;
+    color: $indigo-dark;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
   }
 }

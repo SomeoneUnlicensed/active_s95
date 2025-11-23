@@ -1,19 +1,80 @@
 .button {
-  @include primary-button($primary-color, #fff);
-  padding: 5px 8px;
-  font-size: 16px;
+  background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
+  color: #fff;
+  border: none;
+  border-radius: $border-radius-button;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: $box-shadow-button;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px; // Touch target minimum
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: $sm-width) {
+    font-size: 13px;
+    padding: 10px 16px;
+    letter-spacing: 0.3px;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, $indigo-light 0%, $indigo 100%);
+    box-shadow: $box-shadow-hover;
+    transform: translateY(-2px);
+
+    @media screen and (max-width: $md-width) {
+      transform: none;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    transform: translateY(0);
+    box-shadow: $box-shadow;
+  }
 
   &.small {
-    padding: 2px 9px;
+    padding: 6px 14px;
     font-size: 12px;
+    min-height: 36px;
+
+    @media screen and (max-width: $sm-width) {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
   }
 
   &.large {
-    padding: 10px;
-    font-size: 18px;
+    padding: 14px 28px;
+    font-size: 17px;
+    min-height: 52px;
+
+    @media screen and (max-width: $sm-width) {
+      padding: 12px 20px;
+      font-size: 15px;
+      min-height: 48px;
+    }
   }
 
   &.action {
-    margin-right: 4px;
+    margin-right: 6px;
+
+    @media screen and (max-width: $sm-width) {
+      margin-right: 4px;
+      margin-bottom: 6px;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
   }
 }

@@ -1,60 +1,159 @@
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 8px;
 
   &:not(.index_table) {
     border-radius: $border-radius;
     margin-bottom: 10px;
   }
+
+  // Mobile: horizontal scroll for wide tables
+  @media screen and (max-width: $md-width) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-spacing: 0 6px;
+  }
 }
 
 thead tr {
-  border: 1px solid $border-color;
-  background-color: $border-color;
+  border: none;
+  background: linear-gradient(135deg, rgba($indigo, 0.08) 0%, rgba($indigo, 0.04) 100%);
+  box-shadow: $box-shadow-card;
+
+  @media screen and (max-width: $sm-width) {
+    font-size: 11px;
+  }
 }
 
 thead th {
   font-size: 12px;
   text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: $indigo-dark;
 
   a {
-    color: $text-color-important;
-    font-weight: normal;
+    color: $indigo-dark;
+    font-weight: 700;
     width: 100%;
     display: inline-block;
-    padding: 4px 20px 4px 4px;
+    padding: 12px 20px 12px 12px;
 
     @media screen and (min-width: $md-width) {
-      padding: 8px 20px 8px 8px;
+      padding: 14px 20px 14px 14px;
+    }
+
+    @media screen and (max-width: $sm-width) {
+      padding: 8px 12px 8px 8px;
+      font-size: 11px;
     }
   }
 
+  &:first-child {
+    border-radius: $border-radius-small 0 0 $border-radius-small;
+  }
+
+  &:last-child {
+    border-radius: 0 $border-radius-small $border-radius-small 0;
+  }
+
   &.col-selectable {
-    padding-left: 4px;
+    padding-left: 12px;
 
     @media screen and (min-width: $md-width) {
+      padding-left: 14px;
+    }
+
+    @media screen and (max-width: $sm-width) {
       padding-left: 8px;
     }
   }
 }
 
 tbody tr {
+  background-color: #fff;
+  box-shadow: $box-shadow-card;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+
+  &:hover {
+    background-color: rgba($indigo, 0.08);
+    box-shadow: $box-shadow-hover;
+    transform: translateY(-2px);
+
+    @media screen and (max-width: $md-width) {
+      transform: none;
+    }
+  }
+
+  // TOP 3 RESULTS - GOLD, SILVER, BRONZE
+  &:nth-child(1) {
+    border-left-color: #FFD700;
+  }
+
+  &:nth-child(2) {
+    border-left-color: #C0C0C0;
+  }
+
+  &:nth-child(3) {
+    border-left-color: #CD7F32;
+  }
+
   th {
     font-size: $font-size;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 12px;
+    }
   }
 
   td {
-    padding: 4px;
+    padding: 12px;
     vertical-align: middle;
     color: $text-color;
-    font-size: 12px;
+    font-size: 13px;
+
+    @media screen and (max-width: $sm-width) {
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    &:first-child {
+      border-radius: $border-radius-small 0 0 $border-radius-small;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius-small $border-radius-small 0;
+    }
 
     &.col-actions {
-      padding: 6px 8px;
+      padding: 8px 12px;
+
+      @media screen and (max-width: $sm-width) {
+        padding: 6px 8px;
+      }
+    }
+
+    // MONOSPACE FOR TIME AND TEMPO COLUMNS
+    &.col-time,
+    &.col-pace,
+    &.col-tempo,
+    &.col-duration,
+    &.col-result {
+      font-family: $font-family-mono;
+      font-weight: 600;
+      color: $indigo-dark;
+
+      @media screen and (max-width: $sm-width) {
+        font-size: 11px;
+      }
     }
 
     @media screen and (min-width: $md-width) {
-      padding: 8px;
+      padding: 14px;
     }
   }
 }
@@ -62,10 +161,10 @@ tbody tr {
 // style only for table
 .index_as_table {
   tbody tr {
-    border: 1px solid $border-color;
+    border: none;
 
     &:hover {
-      background-color: rgba(228, 234, 236, 0.3);
+      background-color: rgba($indigo, 0.08);
     }
   }
 }

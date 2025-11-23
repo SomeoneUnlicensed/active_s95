@@ -1,1 +1,6 @@
-$box-shadow: 0 0 4px 0 rgba(0,0,0,0.1) !default;
+// BOX SHADOWS - COLORED INDIGO GLOW
+$box-shadow: 0 2px 8px rgba(102, 16, 242, 0.1) !default;
+$box-shadow-hover: 0 8px 24px rgba(102, 16, 242, 0.25) !default;
+$box-shadow-card: 0 2px 12px rgba(102, 16, 242, 0.12) !default;
+$box-shadow-strong: 0 4px 16px rgba(102, 16, 242, 0.2) !default;
+$box-shadow-button: 0 4px 12px rgba(102, 16, 242, 0.3) !default;

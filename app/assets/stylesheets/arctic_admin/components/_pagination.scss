@@ -6,19 +6,28 @@
     text-align: center;
   }
 
-  .page a, .next a, .last a, .first a, .prev a {
+  .page a,
+  .next a,
+  .last a,
+  .first a,
+  .prev a {
     padding: .3rem .4rem;
     color: $text-color;
-    @include transition-button();
+    border-radius: $border-radius-small;
+    transition: all 0.2s ease;
 
     &:hover {
-      color: $link-primary-color;
+      background-color: rgba($indigo, 0.1);
+      color: $indigo;
+      transform: translateY(-1px);
     }
   }
+
   .page.current {
-    background-color: $link-primary-color;
+    background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
     color: #fff;
-    border-radius: $border-radius;
+    font-weight: 700;
+    border-radius: $border-radius-small;
     padding: .3rem .4rem;
     cursor: normal;
   }

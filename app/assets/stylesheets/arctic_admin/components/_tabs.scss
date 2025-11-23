@@ -3,7 +3,7 @@
 
   .nav {
     border-bottom: 1px solid $border-color;
-    
+
     li {
       display: inline-block;
       text-align: center;
@@ -16,7 +16,7 @@
         @include outline();
         @include transition-button();
       }
-      
+
       &.ui-tabs-active {
         border-bottom: 2px solid $link-primary-color;
 
@@ -29,5 +29,23 @@
 
   .tab-content {
     padding: 10px 20px;
+  }
+}
+
+.scopes {
+  .scope {
+    border-radius: $border-radius-button;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba($indigo, 0.08);
+      transform: translateY(-1px);
+    }
+
+    &.selected {
+      background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
+      color: #fff;
+      font-weight: 700;
+    }
   }
 }

@@ -30,8 +30,9 @@
   li {
     width: 100%;
     font-size: $font-size;
-    line-height: 38px;
+    line-height: 42px;
     cursor: pointer;
+    margin: 4px 0;
 
     a {
       width: 100%;
@@ -39,20 +40,29 @@
       display: inline-block;
       color: $text-color;
       padding: 0 20px;
+      transition: all 0.3s ease;
+      font-weight: 500;
 
       &:hover {
         background-color: $sidebar-item-hover-background;
+        padding-left: 28px;
+        color: $indigo;
       }
     }
 
     &.current {
       a {
-        color: $link-primary-color;
+        color: $indigo;
+        background-color: $sidebar-active-background;
+        border-radius: 0 25px 25px 0;
+        font-weight: 700;
+        border-left: 4px solid $indigo;
+        padding-left: 16px;
       }
     }
 
     &.has_nested {
-      & > a:nth-child(1) {
+      &>a:nth-child(1) {
         position: relative;
 
         &:after {
@@ -80,20 +90,28 @@
 
           &:hover {
             background-color: $sidebar-nested-item-hover-background;
+            padding-left: 40px;
           }
 
           @media screen and (min-width: $x-lg-width) {
             padding: 0px 15px 0px 40px;
+
+            &:hover {
+              padding-left: 45px;
+            }
           }
         }
 
         .current a {
-          color: $link-primary-color;
+          color: $indigo;
+          font-weight: 700;
+          background-color: rgba($indigo, 0.05);
         }
       }
 
-      &.open, &.current {
-        & > a:nth-child(1) {
+      &.open,
+      &.current {
+        &>a:nth-child(1) {
           position: relative;
 
           &:after {
@@ -101,7 +119,7 @@
           }
         }
 
-        & > ul {
+        &>ul {
           display: block;
         }
       }
