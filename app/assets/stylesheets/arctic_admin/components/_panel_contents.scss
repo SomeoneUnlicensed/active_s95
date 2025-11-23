@@ -4,9 +4,17 @@
   transition: all 0.3s ease;
   overflow: hidden;
 
+  @media screen and (max-width: $sm-width) {
+    border-radius: $border-radius-small;
+  }
+
   &:hover {
     box-shadow: $box-shadow-hover;
     transform: translateY(-4px);
+
+    @media screen and (max-width: $md-width) {
+      transform: none;
+    }
   }
 
   h3,
@@ -16,23 +24,43 @@
     letter-spacing: 1.2px;
     color: $indigo-dark;
     font-family: $font-family-accent;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 14px;
+      letter-spacing: 0.8px;
+    }
   }
 }
 
 .panel_contents {
   background: #fff;
 
+  @media screen and (max-width: $sm-width) {
+    padding: 10px;
+  }
+
   .paginated_collection {
     #index_footer {
       margin: 10px;
       text-align: right;
       font-size: 12px;
+
+      @media screen and (max-width: $sm-width) {
+        text-align: center;
+        margin: 8px;
+        font-size: 11px;
+      }
     }
   }
 
   th {
     text-align: left;
     padding: 8px;
+
+    @media screen and (max-width: $sm-width) {
+      padding: 6px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -43,12 +71,20 @@
     letter-spacing: 0.5px;
     font-size: 12px;
     color: $indigo-dark;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 11px;
+    }
   }
 
   td.monospace {
     font-family: $font-family-mono;
     font-weight: 600;
     color: $indigo;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -63,6 +99,10 @@
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: 0.5px;
+
+    @media screen and (max-width: $sm-width) {
+      font-size: 10px;
+    }
   }
 }
 
@@ -70,9 +110,17 @@
   .panel {
     background: #fff;
     border-left: 4px solid $indigo;
+
+    @media screen and (max-width: $sm-width) {
+      border-left-width: 3px;
+    }
   }
 
   .attributes_table {
     border-spacing: 0 4px;
+
+    @media screen and (max-width: $sm-width) {
+      border-spacing: 0 2px;
+    }
   }
 }

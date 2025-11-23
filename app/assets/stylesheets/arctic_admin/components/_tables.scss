@@ -168,3 +168,204 @@ tbody tr {
     }
   }
 }
+
+// INLINE TIME EDITOR
+.time-editable {
+  position: relative;
+  cursor: pointer;
+  font-family: $font-family-mono;
+  font-weight: 600;
+  color: $indigo-dark;
+  transition: all 0.2s ease;
+  padding-right: 28px !important;
+
+  &::after {
+    content: '✎';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    color: $indigo;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    background: rgba($indigo, 0.05);
+    color: $indigo;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &.editing {
+    padding: 0 !important;
+    background: rgba($indigo, 0.08);
+
+    &::after {
+      display: none;
+    }
+
+    input.time-input {
+      width: 100%;
+      height: 100%;
+      border: 2px solid $indigo;
+      border-radius: $border-radius-small;
+      padding: 8px 12px;
+      font-family: $font-family-mono;
+      font-size: 14px;
+      font-weight: 600;
+      color: $indigo-dark;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 0 0 4px rgba($indigo, 0.15);
+      outline: none;
+
+      @media screen and (max-width: $sm-width) {
+        font-size: 13px;
+        padding: 6px 10px;
+      }
+
+      &::placeholder {
+        color: rgba($indigo, 0.4);
+        font-style: italic;
+      }
+
+      &:focus {
+        border-color: $indigo-dark;
+        box-shadow: 0 0 0 4px rgba($indigo, 0.25);
+      }
+    }
+  }
+
+  // Specific columns that support inline editing
+  &.col-gun-time,
+  &.col-chip-time,
+  &.col-result-time,
+  &.col-time {
+    @media screen and (max-width: $sm-width) {
+      padding-right: 24px !important;
+
+      &::after {
+        font-size: 12px;
+        right: 6px;
+      }
+    }
+  }
+}
+
+// Time input validation states
+.time-input {
+  &.valid {
+    border-color: $teal;
+    box-shadow: 0 0 0 4px rgba($teal, 0.15);
+  }
+
+  &.invalid {
+    border-color: $coral;
+    box-shadow: 0 0 0 4px rgba($coral, 0.15);
+    animation: shake 0.3s;
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+
+.drag-handle {
+  cursor: grab;
+  color: #adb5bd;
+  padding: 10px;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $indigo;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    cursor: grabbing;
+    color: $indigo-dark;
+  }
+
+  @media screen and (max-width: $sm-width) {
+    padding: 8px;
+    font-size: 1rem;
+  }
+}
+
+
+.sortable-ghost {
+  background-color: rgba($indigo, 0.05) !important;
+  border: 2px dashed $indigo !important;
+  opacity: 0.5;
+
+  td {
+    color: transparent !important;
+  }
+}
+
+// Строка, которую тащим
+.sortable-drag {
+  background: #fff !important;
+  opacity: 1 !important;
+  box-shadow: 0 15px 30px rgba($indigo, 0.3) !important;
+  transform: scale(1.02) rotate(1deg) !important;
+  cursor: grabbing !important;
+  z-index: 9999 !important;
+  border-left: 4px solid $indigo !important;
+
+  td {
+    border-top: 2px solid $indigo !important;
+    border-bottom: 2px solid $indigo !important;
+  }
+
+  @media screen and (max-width: $md-width) {
+    transform: scale(1.01) !important;
+  }
+}
+
+
+.sortable-chosen {
+  background: rgba($indigo, 0.08) !important;
+
+  .drag-handle {
+    color: $indigo;
+  }
+}
+
+
+.sortable-table {
+  tbody tr {
+    transition: all 0.2s ease;
+
+    &:hover {
+      .drag-handle {
+        opacity: 1;
+      }
+    }
+  }
+
+  .drag-handle {
+    opacity: 0.5;
+  }
+}
