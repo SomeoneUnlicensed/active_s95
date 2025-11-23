@@ -5,10 +5,10 @@ require 'active_s95/version'
 
 Gem::Specification.new do |s|
   s.name        = 'active_s95'
-  s.version     = s95Admin::VERSION
+  s.version     = S95Admin::VERSION
   s.summary     = "s95 Admin theme for ActiveAdmin"
-  s.description = "A responsive theme for Active Admin"
-  s.authors     = ["Clément Prod'homme"]
+  s.description = "A responsive theme for Active Admin build special for S95"
+  s.authors     = ["Letunovskiy Vladimir"]
   s.files       = Dir["{app,lib}/**/*"] + ["README.md", 'LICENCE.txt']
   s.homepage    = 'https://github.com/SomeoneUnlicensed/active_s95'
   s.metadata    = {
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     "changelog_uri"   => "https://github.com/SomeoneUnlicensed/active_s95/releases",
   }
 
-  s.license     = 'MIT'
+  s.license     = 'The Unlicense'
   s.require_paths = ["lib"]
   s.add_development_dependency "bundler", "~> 1.5"
   s.add_development_dependency "rake"

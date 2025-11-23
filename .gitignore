@@ -12,3 +12,5 @@ gemfiles/vendor/ruby
 /src
 .idea
 vendor/bundle/
+.api
+.api

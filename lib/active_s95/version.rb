@@ -1,3 +1,3 @@
-module s95Admin
+module S95Admin
   VERSION = "1.0.0"
 end
