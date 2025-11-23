@@ -8,8 +8,18 @@ table {
     margin-bottom: 10px;
   }
 
-  // Mobile: horizontal scroll for wide tables
-  @media screen and (max-width: $md-width) {
+  // MOBILE CARD VIEW: Transform table to cards on small screens
+  @media screen and (max-width: $md-tablet) {
+    display: block;
+    border-spacing: 0;
+
+    &.index_table {
+      @include table-to-cards;
+    }
+  }
+
+  // TABLET: Horizontal scroll with momentum for medium screens
+  @media screen and (min-width: #{$md-tablet + 1}) and (max-width: $md-width) {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -47,8 +57,15 @@ thead th {
     }
 
     @media screen and (max-width: $sm-width) {
-      padding: 8px 12px 8px 8px;
-      font-size: 11px;
+      padding: 10px 14px 10px 10px;
+      font-size: 12px;
+    }
+  }
+
+  // Smart column hiding on tablets
+  @media screen and (min-width: $md-tablet) and (max-width: #{$md-width - 1}) {
+    &.col-less-important {
+      display: none;
     }
   }
 
@@ -117,8 +134,15 @@ tbody tr {
     font-size: 13px;
 
     @media screen and (max-width: $sm-width) {
-      padding: 8px;
-      font-size: 12px;
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    // Smart column hiding on tablets (sync with thead)
+    @media screen and (min-width: $md-tablet) and (max-width: #{$md-width - 1}) {
+      &.col-less-important {
+        display: none;
+      }
     }
 
     &:first-child {
@@ -133,7 +157,23 @@ tbody tr {
       padding: 8px 12px;
 
       @media screen and (max-width: $sm-width) {
-        padding: 6px 8px;
+        padding: 8px 10px;
+      }
+
+      // Touch-friendly action buttons
+      a,
+      .button,
+      .member_link {
+        @include touch-button(44px);
+        margin: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: $sm-width) {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
       }
     }
 
@@ -296,6 +336,11 @@ tbody tr {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  @include no-tap-highlight;
+
+  // Touch-friendly sizing
+  min-width: 44px;
+  min-height: 44px;
 
   &:hover {
     color: $indigo;
@@ -308,8 +353,20 @@ tbody tr {
   }
 
   @media screen and (max-width: $sm-width) {
-    padding: 8px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 1.3rem;
+    min-width: 48px;
+    min-height: 48px;
+
+    // Larger touch target on mobile
+    &::before {
+      content: '';
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
+    }
   }
 }
 
@@ -341,6 +398,12 @@ tbody tr {
 
   @media screen and (max-width: $md-width) {
     transform: scale(1.01) !important;
+    box-shadow: 0 10px 20px rgba($indigo, 0.25) !important;
+  }
+
+  @media screen and (max-width: $sm-width) {
+    transform: scale(1.005) !important;
+    box-shadow: 0 8px 16px rgba($indigo, 0.2) !important;
   }
 }
 

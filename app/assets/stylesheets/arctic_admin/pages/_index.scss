@@ -2,13 +2,18 @@
 
 body.index {
 
-  .resource_selection_toggle_cell, .resource_selection_cell {
+  .resource_selection_toggle_cell,
+  .resource_selection_cell {
     display: flex;
   }
 
   .table_tools {
     margin-bottom: 20px;
     font-size: $font-size;
+
+    @media screen and (max-width: $sm-width) {
+      margin-bottom: 16px;
+    }
 
     &:after {
       content: '';
@@ -18,6 +23,11 @@ body.index {
 
     input[type='checkbox'] {
       display: flex;
+
+      @media screen and (max-width: $sm-width) {
+        min-width: 24px;
+        min-height: 24px;
+      }
     }
 
     .collection_selection_toggle_all {
@@ -26,10 +36,22 @@ body.index {
 
     .batch_actions_selector {
       display: inline-block;
+
+      @media screen and (max-width: $sm-width) {
+        display: block;
+        width: 100%;
+        margin-bottom: 12px;
+      }
     }
 
-    .dropdown_menu_button{
+    .dropdown_menu_button {
       @include secondary-dropdown($button-primary-color);
+
+      @media screen and (max-width: $sm-width) {
+        @include touch-button();
+        width: 100%;
+        min-height: 48px;
+      }
     }
 
     .dropdown_menu_list {
@@ -40,18 +62,41 @@ body.index {
       display: inline-block;
       position: absolute;
       z-index: 1;
+
+      @media screen and (max-width: $sm-width) {
+        left: 0;
+        right: 0;
+        width: calc(100% - 32px);
+        margin: 0 16px;
+      }
     }
 
     .indexes.table_tools_segmented_control {
       display: flex;
       justify-content: right;
 
+      @media screen and (max-width: $sm-width) {
+        flex-direction: column;
+        gap: 8px;
+      }
+
       a {
         @include secondary-button($button-primary-color);
+
+        @media screen and (max-width: $sm-width) {
+          width: 100%;
+          text-align: center;
+          @include touch-button();
+        }
       }
 
       .index {
         margin-right: 4px;
+
+        @media screen and (max-width: $sm-width) {
+          margin-right: 0;
+        }
+
         &:last-child {
           margin-right: 0;
         }
@@ -110,6 +155,12 @@ body.index {
 
       a {
         margin-right: .25rem;
+
+        @media screen and (max-width: $sm-width) {
+          @include touch-button();
+          min-height: 44px;
+          margin-bottom: .25rem;
+        }
       }
     }
   }
@@ -136,12 +187,21 @@ body.index {
       width: 40px;
       height: 50px;
       background-color: #fff;
-      @include box-shadow(-1px 0 4px 0 rgba(0,0,0,.04));
+      @include box-shadow(-1px 0 4px 0 rgba(0, 0, 0, .04));
       border-top-left-radius: $border-radius;
       border-bottom-left-radius: $border-radius;
       @include icon($icon-filter);
       font-size: 20px;
       padding: 15px 10px;
+      @include no-tap-highlight;
+
+      @media screen and (max-width: $sm-width) {
+        width: 48px;
+        height: 56px;
+        font-size: 22px;
+        padding: 17px 12px;
+        left: -48px;
+      }
     }
   }
 }

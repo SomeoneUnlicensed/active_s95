@@ -30,11 +30,14 @@
 
 #main_content {
   background-color: #fff;
-  @include box-shadow(0 0 4px 0 rgba(0,0,0,.04));
+  @include box-shadow(0 0 4px 0 rgba(0, 0, 0, .04));
   padding: 15px 10px;
 
-  @media screen and (max-width: 576px) {
-    overflow-x: scroll;
+  @media screen and (max-width: $sm-width) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px;
+    @include safe-area-inset-padding('bottom', 16px);
   }
 
   @media screen and (min-width: $lg-width) {

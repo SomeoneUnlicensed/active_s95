@@ -5,14 +5,17 @@
   top: 50px;
   background-color: $sidebar-background;
   border-right: 1px solid $sidebar-border-color;
-  z-index: 1;
+  z-index: 1000;
   overflow: auto;
   left: - $header-width;
-  transition: .5s;
-  transition-timing-function: ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  @include momentum-scroll;
+
+  // Backdrop overlay when open
+  @include backdrop-overlay(999);
 
   &.tabs_open {
-    left: 0;
+    transform: translateX($header-width);
   }
 
   @media screen and (min-width: $sm-width) {
@@ -21,6 +24,11 @@
 
   @media screen and (min-width: $lg-width) {
     left: 0px !important;
+    transform: none !important;
+
+    &::before {
+      display: none !important;
+    }
   }
 
   @media screen and (min-width: $x-lg-width) {
@@ -42,11 +50,25 @@
       padding: 0 20px;
       transition: all 0.3s ease;
       font-weight: 500;
+      @include no-tap-highlight;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: $sm-width) {
+        min-height: 48px;
+        padding: 0 24px;
+        font-size: 15px;
+      }
 
       &:hover {
         background-color: $sidebar-item-hover-background;
         padding-left: 28px;
         color: $indigo;
+
+        @media screen and (max-width: $sm-width) {
+          padding-left: 32px;
+        }
       }
     }
 

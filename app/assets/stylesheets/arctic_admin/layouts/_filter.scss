@@ -2,8 +2,16 @@
   width: $filter-width;
   background-color: #fff;
   border-radius: $border-radius;
-  @include box-shadow(0 0 4px 0 rgba(0,0,0,.04));
+  @include box-shadow(0 0 4px 0 rgba(0, 0, 0, .04));
   margin-bottom: 30px;
+
+  // Mobile: Full-screen overlay
+  @media screen and (max-width: $sm-width) {
+    @include mobile-overlay;
+    border-radius: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 
   @media screen and (min-width: $x-lg-width) {
     width: $lg-filter-width;
@@ -13,9 +21,20 @@
     padding: 15px 20px;
     overflow-y: scroll;
     max-height: 80vh;
+    @include momentum-scroll;
+
+    @media screen and (max-width: $sm-width) {
+      padding: 20px 24px;
+      max-height: calc(100vh - 160px); // Account for header and sticky buttons
+    }
 
     h3 {
       margin: 0 0 10px 0;
+
+      @media screen and (max-width: $sm-width) {
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
     }
 
     .label {
@@ -26,17 +45,26 @@
     .input {
       margin-bottom: 10px;
 
-      input, select {
+      input,
+      select {
         height: 36px;
         padding: 3px 5px;
         font-size: 14px;
+
+        @media screen and (max-width: $sm-width) {
+          @include prevent-zoom;
+          min-height: 48px;
+          padding: 12px 16px;
+        }
       }
     }
 
     .select_and_search {
-      input, select {
+
+      input,
+      select {
         width: 50%;
-        display: inline-block;  
+        display: inline-block;
       }
 
       input {
@@ -62,6 +90,14 @@
       width: auto;
       line-height: 31px;
       margin-right: 10px;
+      @include touch-button();
+
+      @media screen and (max-width: $sm-width) {
+        width: 100%;
+        min-height: 48px;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
 
     &.panel {
@@ -79,11 +115,27 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
+    gap: 10px;
+
+    // Sticky at bottom on mobile
+    @media screen and (max-width: $sm-width) {
+      @include sticky-bottom-actions;
+      flex-direction: column;
+
+      a,
+      input[type="submit"] {
+        width: 100%;
+        text-align: center;
+        @include touch-button();
+        min-height: 48px;
+      }
+    }
   }
 }
 
 // fix pour search select filter de ActiveAdmin_Addons
-.search_select_filter, .filter_boolean {
+.search_select_filter,
+.filter_boolean {
   .select2.select2-container {
     width: 100% !important;
   }

@@ -1,9 +1,26 @@
 .pagination {
   font-size: 13px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  @media screen and (max-width: $sm-width) {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
 
   .page {
     text-align: center;
+
+    // Hide middle pages on mobile for compact view
+    @media screen and (max-width: $sm-width) {
+      &:not(.current):not(:first-child):not(:last-child):not(:nth-last-child(2)):not(:nth-child(2)) {
+        display: none;
+      }
+    }
   }
 
   .page a,
@@ -15,11 +32,28 @@
     color: $text-color;
     border-radius: $border-radius-small;
     transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    @include no-tap-highlight;
+
+    @media screen and (max-width: $sm-width) {
+      min-width: 44px;
+      min-height: 44px;
+      padding: .5rem .6rem;
+      font-size: 14px;
+    }
 
     &:hover {
       background-color: rgba($indigo, 0.1);
       color: $indigo;
       transform: translateY(-1px);
+
+      @media screen and (max-width: $sm-width) {
+        transform: none;
+      }
     }
   }
 
@@ -30,5 +64,17 @@
     border-radius: $border-radius-small;
     padding: .3rem .4rem;
     cursor: normal;
+    min-width: 32px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: $sm-width) {
+      min-width: 44px;
+      min-height: 44px;
+      padding: .5rem .6rem;
+      font-size: 14px;
+    }
   }
 }

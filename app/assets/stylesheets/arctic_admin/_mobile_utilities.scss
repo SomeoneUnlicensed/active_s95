@@ -1,0 +1,212 @@
+// Mobile-First Utilities and Helpers
+// Touch-friendly interactions, safe areas, and mobile-specific utilities
+
+// Touch-friendly minimum sizes (44x44px iOS HIG, 48x48px Material Design)
+$touch-target-min: 44px !default;
+$touch-target-optimal: 48px !default;
+
+// Touch-friendly button mixin
+@mixin touch-button($min-height: $touch-target-min) {
+    min-height: $min-height;
+    min-width: $min-height;
+    padding: 12px 20px;
+
+    @media screen and (max-width: $sm-width) {
+        min-height: $touch-target-optimal;
+        min-width: $touch-target-optimal;
+    }
+}
+
+// Tap highlight removal (for custom touch feedback)
+@mixin no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+// Momentum scrolling for smooth scrolling on iOS
+@mixin momentum-scroll {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// Safe area insets for iOS notch/home bar
+@mixin safe-area-inset-padding($side: 'all', $additional: 0) {
+    @if $side =='all' {
+        padding: calc(#{$additional} + env(safe-area-inset-top)) calc(#{$additional} + env(safe-area-inset-right)) calc(#{$additional} + env(safe-area-inset-bottom)) calc(#{$additional} + env(safe-area-inset-left));
+    }
+
+    @else if $side =='top' {
+        padding-top: calc(#{$additional} + env(safe-area-inset-top));
+    }
+
+    @else if $side =='bottom' {
+        padding-bottom: calc(#{$additional} + env(safe-area-inset-bottom));
+    }
+
+    @else if $side =='left' {
+        padding-left: calc(#{$additional} + env(safe-area-inset-left));
+    }
+
+    @else if $side =='right' {
+        padding-right: calc(#{$additional} + env(safe-area-inset-right));
+    }
+}
+
+// Card view transformation helper
+@mixin table-to-cards {
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 16px;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow-card;
+        border-left: none !important;
+
+        td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border: none;
+            gap: 12px;
+
+            &:first-child {
+                border-radius: $border-radius-small $border-radius-small 0 0;
+                padding-top: 16px;
+            }
+
+            &:last-child {
+                border-radius: 0 0 $border-radius-small $border-radius-small;
+                padding-bottom: 16px;
+            }
+
+            // Add label before value
+            &::before {
+                content: attr(data-label);
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 11px;
+                letter-spacing: 0.5px;
+                color: $indigo;
+                flex-shrink: 0;
+            }
+
+            // Hide elements that don't make sense in card view
+            &.col-selectable {
+                order: -1;
+                background: rgba($indigo, 0.05);
+
+                &::before {
+                    content: '';
+                }
+            }
+
+            &.col-actions {
+                order: 999;
+                background: rgba($indigo, 0.03);
+                justify-content: center;
+
+                &::before {
+                    content: '';
+                }
+            }
+        }
+    }
+}
+
+// Visibility utilities
+.mobile-only {
+    @media screen and (min-width: $md-width) {
+        display: none !important;
+    }
+}
+
+.desktop-only {
+    @media screen and (max-width: #{$md-width - 1}) {
+        display: none !important;
+    }
+}
+
+.tablet-only {
+    display: none !important;
+
+    @media screen and (min-width: $md-tablet) and (max-width: #{$md-width - 1}) {
+        display: block !important;
+    }
+}
+
+// Prevent zoom on input focus (iOS)
+@mixin prevent-zoom {
+    font-size: 16px !important;
+
+    @media screen and (min-width: $md-width) {
+        font-size: $font-size !important;
+    }
+}
+
+// Full-width mobile overlay
+@mixin mobile-overlay {
+    @media screen and (max-width: $sm-width) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background: white;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+// Backdrop overlay for modals/drawers
+@mixin backdrop-overlay($z-index: 998) {
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: $z-index;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    &.open::before,
+    &.sidebar_open::before,
+    &.tabs_open::before {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+// Swipe-ready preparation (for future JS integration)
+.swipeable {
+    @include no-tap-highlight;
+    touch-action: pan-y; // Allow vertical scroll, prepare for horizontal swipe
+    user-select: none;
+}
+
+// Sticky bottom actions (for forms, filters)
+@mixin sticky-bottom-actions {
+    @media screen and (max-width: $sm-width) {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 12px 16px;
+        @include safe-area-inset-padding('bottom', 12px);
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        margin: 0 -16px -16px;
+    }
+}
