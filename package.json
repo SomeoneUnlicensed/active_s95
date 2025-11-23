@@ -1,6 +1,6 @@
 {
   "name": "active_s95",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Responsive Theme for ActiveAdmin made special for S95",
   "main": "app/assets/javascripts/active_s95/main.js",
   "files": [
@@ -20,8 +20,8 @@
     "theme",
     "active_s95"
   ],
-  "author": "Clément Prod'homme",
-  "license": "MIT",
+  "author": "Vladimir Letunovskiy",
+  "license": "The Unlicense",
   "bugs": {
     "url": "https://github.com/SomeoneUnlicensed/active_s95/issues"
   },

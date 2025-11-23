@@ -1,5 +1,6 @@
 #  Active S95
 
+[![Gem Version](https://badge.fury.io/rb/active_s95.svg)](https://rubygems.org/gems/active_s95)
 
 ##  Installation
 
