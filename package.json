@@ -1,0 +1,29 @@
+{
+  "name": "active_s95",
+  "version": "1.0.0",
+  "description": "Responsive Theme for ActiveAdmin made special for S95",
+  "main": "app/assets/javascripts/active_s95/main.js",
+  "files": [
+    "app/assets/javascripts/active_s95/*.js",
+    "src/**/*"
+  ],
+  "scripts": {
+    "prepublishOnly": "rm -rf src && cp -R app/assets/javascripts/active_s95 src && cp -R app/assets/stylesheets/active_s95 src/scss && cp -R app/assets/fonts src/fonts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SomeoneUnlicensed/active_s95.git"
+  },
+  "keywords": [
+    "activeadmin",
+    "theme",
+    "active_s95"
+  ],
+  "author": "Clément Prod'homme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SomeoneUnlicensed/active_s95/issues"
+  },
+  "homepage": "https://github.com/SomeoneUnlicensed/active_s95#readme"
+}
