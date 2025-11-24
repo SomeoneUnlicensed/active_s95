@@ -1,0 +1,195 @@
+// ====================
+// FILE UPLOAD ZONE (DRAG & DROP)
+// ====================
+
+// Скрываем стандартный input file
+input[type="file"].file-upload-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+// Основная зона загрузки
+.file-upload-zone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 40px 20px;
+    border: 3px dashed $border-color;
+    border-radius: $border-radius-card;
+    background: linear-gradient(135deg, rgba($indigo, 0.02) 0%, rgba($indigo, 0.01) 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: rgba($indigo, 0.4);
+        background: linear-gradient(135deg, rgba($indigo, 0.05) 0%, rgba($indigo, 0.02) 100%);
+        transform: translateY(-2px);
+    }
+
+    // Активное состояние при перетаскивании - ярко-зелёный цвет
+    &.dragover {
+        border-color: $teal;
+        border-width: 3px;
+        background: linear-gradient(135deg, rgba($teal, 0.1) 0%, rgba($teal, 0.05) 100%);
+        box-shadow: 0 0 20px rgba($teal, 0.2);
+
+        .file-upload-icon {
+            color: $teal;
+            transform: scale(1.1);
+        }
+
+        .file-upload-text {
+            color: $teal;
+        }
+    }
+}
+
+// Иконка облака
+.file-upload-icon {
+    font-size: 48px;
+    color: rgba($indigo, 0.5);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+
+    svg,
+    i {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+// Текстовые подсказки
+.file-upload-text {
+    text-align: center;
+    color: $text-color;
+    transition: all 0.3s ease;
+
+    .file-upload-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: $indigo-dark;
+        margin-bottom: 8px;
+        font-family: $font-family-accent;
+    }
+
+    .file-upload-subtitle {
+        font-size: 14px;
+        color: $text-color;
+        opacity: 0.7;
+    }
+}
+
+// ====================
+// FILE CARDS (СТАТУС БЛОК)
+// ====================
+
+.file-upload-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.file-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fff;
+    border: 2px solid $border-color;
+    border-radius: $border-radius-button;
+    box-shadow: $box-shadow-card;
+    transition: all 0.3s ease;
+    opacity: 1;
+
+    &:hover {
+        border-color: rgba($indigo, 0.3);
+        box-shadow: $box-shadow-hover;
+        transform: translateY(-2px);
+
+        .file-card-delete {
+            opacity: 1;
+        }
+    }
+}
+
+.file-card-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($indigo, 0.1) 0%, rgba($indigo, 0.05) 100%);
+    font-size: 20px;
+}
+
+.file-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-card-name {
+    font-weight: 600;
+    color: $indigo-dark;
+    font-size: 14px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-card-size {
+    font-size: 12px;
+    color: $text-color;
+    opacity: 0.7;
+    font-family: $font-family-mono;
+}
+
+.file-card-delete {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: $coral;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+        background: rgba($coral, 0.1);
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+// Multiple files support
+input[type="file"][multiple]+.file-upload-zone {
+    .file-upload-subtitle::after {
+        content: " (можно выбрать несколько)";
+        font-weight: 600;
+        color: $indigo;
+    }
+}

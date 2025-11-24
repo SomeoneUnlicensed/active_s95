@@ -1,0 +1,951 @@
+.panel {
+    border-radius: $border-radius-card !important;
+    box-shadow: $box-shadow-card;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: $box-shadow-hover;
+        transform: translateY(-4px);
+    }
+
+    h3,
+    .panel_title {
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: $indigo-dark;
+        font-family: $font-family-accent;
+    }
+}
+
+.panel_contents {
+    background: #fff;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-accent;
+
+    &.page_title,
+    &.section_title {
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        color: $indigo-dark;
+    }
+}
+
+.title {
+    font-family: $font-family-accent;
+    font-weight: 700;
+    color: $indigo;
+}
+
+// ====================
+// ICON CONTAINERS
+// ====================
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($indigo, 0.1) 0%, rgba($indigo, 0.05) 100%);
+    box-shadow: 0 2px 8px rgba($indigo, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(135deg, rgba($indigo, 0.15) 0%, rgba($indigo, 0.08) 100%);
+        box-shadow: 0 4px 12px rgba($indigo, 0.25);
+        transform: translateY(-2px);
+    }
+
+    i,
+    svg {
+        color: $indigo;
+    }
+}
+
+// ====================
+// ATTRIBUTES TABLE (SHOW PAGE)
+// ====================
+.attributes_table {
+    th {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 12px;
+        color: $indigo-dark;
+    }
+
+    td {
+        &.monospace {
+            font-family: $font-family-mono;
+            font-weight: 600;
+            color: $indigo;
+        }
+    }
+}
+
+// ====================
+// LOGO STYLING
+// ====================
+#site_title,
+.site_title {
+    font-family: $font-family-accent !important;
+    font-weight: 900 !important;
+    font-size: 22px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    background: linear-gradient(135deg, $indigo 0%, $indigo-light 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// ====================
+// FORM INPUTS
+// ====================
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+textarea,
+select {
+    border-radius: $border-radius-input !important;
+    border: 2px solid $border-color;
+    transition: all 0.3s ease;
+
+    &:focus {
+        border-color: $indigo;
+        box-shadow: 0 0 0 3px rgba($indigo, 0.1);
+        outline: none;
+    }
+}
+
+// ====================
+// PAGINATION
+// ====================
+.pagination {
+
+    a,
+    span {
+        border-radius: $border-radius-small;
+        transition: all 0.2s ease;
+    }
+
+    a {
+        &:hover {
+            background-color: rgba($indigo, 0.1);
+            color: $indigo;
+            transform: translateY(-1px);
+        }
+    }
+
+    .current {
+        background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
+        color: #fff;
+        font-weight: 700;
+    }
+}
+
+// ====================
+// FILTERS SIDEBAR
+// ====================
+#filters_sidebar_section {
+    .panel {
+        background: linear-gradient(135deg, rgba($indigo, 0.03) 0%, rgba($indigo, 0.01) 100%);
+    }
+
+    .filter_form_field {
+        label {
+            font-weight: 600;
+            color: $indigo-dark;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+// ====================
+// FLASH MESSAGES
+// ====================
+.flash {
+    border-radius: $border-radius-button;
+    box-shadow: $box-shadow-card;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    &.flash_notice {
+        background: linear-gradient(135deg, rgba($teal, 0.9) 0%, rgba($teal, 0.8) 100%);
+    }
+
+    &.flash_error {
+        background: linear-gradient(135deg, rgba($coral, 0.9) 0%, rgba($coral, 0.8) 100%);
+    }
+}
+
+// ====================
+// SCOPES (TABS)
+// ====================
+.scopes {
+    .scope {
+        border-radius: $border-radius-button;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: rgba($indigo, 0.08);
+            transform: translateY(-1px);
+        }
+
+        &.selected {
+            background: linear-gradient(135deg, $indigo 0%, $indigo-dark 100%);
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+}
+
+// ====================
+// ACTION ITEMS
+// ====================
+.action_item {
+    a {
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $indigo;
+            transform: translateX(3px);
+        }
+    }
+}
+
+// ====================
+// DASHBOARD WIDGETS
+// ====================
+.dashboard {
+    .panel {
+        background: #fff;
+        border-left: 4px solid $indigo;
+    }
+
+    .attributes_table {
+        border-spacing: 0 4px;
+    }
+}
+
+// ====================
+// BATCH ACTIONS
+// ====================
+.batch_actions_selector {
+    border-radius: $border-radius-button !important;
+}
+
+.dropdown_menu {
+    border-radius: $border-radius-small;
+    box-shadow: $box-shadow-hover;
+    border: none;
+}
+
+// ====================
+// CHARTS & GRAPHS
+// ====================
+.chart-container {
+    canvas {
+        border-radius: $border-radius-small;
+    }
+}
+
+// Custom chart colors (to be used in JS)
+:root {
+    --chart-primary: #{$indigo};
+    --chart-accent-1: #{$teal};
+    --chart-accent-2: #{$coral};
+    --chart-grid: rgba(102, 16, 242, 0.05);
+}
+
+// ====================
+// FILE UPLOAD ZONE (DRAG & DROP)
+// ====================
+
+// Скрываем стандартный input file
+input[type="file"].file-upload-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+// Основная зона загрузки
+.file-upload-zone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 40px 20px;
+    border: 3px dashed $border-color;
+    border-radius: $border-radius-card;
+    background: linear-gradient(135deg, rgba($indigo, 0.02) 0%, rgba($indigo, 0.01) 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: rgba($indigo, 0.4);
+        background: linear-gradient(135deg, rgba($indigo, 0.05) 0%, rgba($indigo, 0.02) 100%);
+        transform: translateY(-2px);
+    }
+
+    // Активное состояние при перетаскивании - ярко-зелёный цвет
+    &.dragover {
+        border-color: $teal;
+        border-width: 3px;
+        background: linear-gradient(135deg, rgba($teal, 0.1) 0%, rgba($teal, 0.05) 100%);
+        box-shadow: 0 0 20px rgba($teal, 0.2);
+
+        .file-upload-icon {
+            color: $teal;
+            transform: scale(1.1);
+        }
+
+        .file-upload-text {
+            color: $teal;
+        }
+    }
+}
+
+// Иконка облака
+.file-upload-icon {
+    font-size: 48px;
+    color: rgba($indigo, 0.5);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+
+    // Если используется SVG или font icon
+    svg,
+    i {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+// Текстовые подсказки
+.file-upload-text {
+    text-align: center;
+    color: $text-color;
+    transition: all 0.3s ease;
+
+    .file-upload-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: $indigo-dark;
+        margin-bottom: 8px;
+        font-family: $font-family-accent;
+    }
+
+    .file-upload-subtitle {
+        font-size: 14px;
+        color: $text-color;
+        opacity: 0.7;
+    }
+}
+
+// ====================
+// FILE CARDS (СТАТУС БЛОК)
+// ====================
+
+.file-upload-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.file-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fff;
+    border: 2px solid $border-color;
+    border-radius: $border-radius-button;
+    box-shadow: $box-shadow-card;
+    transition: all 0.3s ease;
+    opacity: 1;
+
+    &:hover {
+        border-color: rgba($indigo, 0.3);
+        box-shadow: $box-shadow-hover;
+        transform: translateY(-2px);
+
+        .file-card-delete {
+            opacity: 1;
+        }
+    }
+}
+
+// Иконка файла
+.file-card-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($indigo, 0.1) 0%, rgba($indigo, 0.05) 100%);
+    font-size: 20px;
+}
+
+// Информация о файле
+.file-card-info {
+    flex: 1;
+    min-width: 0; // Для корректного overflow
+}
+
+.file-card-name {
+    font-weight: 600;
+    color: $indigo-dark;
+    font-size: 14px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-card-size {
+    font-size: 12px;
+    color: $text-color;
+    opacity: 0.7;
+    font-family: $font-family-mono;
+}
+
+// Кнопка удаления
+.file-card-delete {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: $coral;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+        background: rgba($coral, 0.1);
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    svg {
+
+        // Custom chart colors (to be used in JS)
+        :root {
+            --chart-primary: #{$indigo};
+            --chart-accent-1: #{$teal};
+            --chart-accent-2: #{$coral};
+            --chart-grid: rgba(102, 16, 242, 0.05);
+        }
+
+        // ====================
+        // FILE UPLOAD ZONE (DRAG & DROP)
+        // ====================
+
+        // Скрываем стандартный input file
+        input[type="file"].file-upload-input {
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        // Основная зона загрузки
+        .file-upload-zone {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            padding: 40px 20px;
+            border: 3px dashed $border-color;
+            border-radius: $border-radius-card;
+            background: linear-gradient(135deg, rgba($indigo, 0.02) 0%, rgba($indigo, 0.01) 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: rgba($indigo, 0.4);
+                background: linear-gradient(135deg, rgba($indigo, 0.05) 0%, rgba($indigo, 0.02) 100%);
+                transform: translateY(-2px);
+            }
+
+            // Активное состояние при перетаскивании - ярко-зелёный цвет
+            &.dragover {
+                border-color: $teal;
+                border-width: 3px;
+                background: linear-gradient(135deg, rgba($teal, 0.1) 0%, rgba($teal, 0.05) 100%);
+                box-shadow: 0 0 20px rgba($teal, 0.2);
+
+                .file-upload-icon {
+                    color: $teal;
+                    transform: scale(1.1);
+                }
+
+                .file-upload-text {
+                    color: $teal;
+                }
+            }
+        }
+
+        // Иконка облака
+        .file-upload-icon {
+            font-size: 48px;
+            color: rgba($indigo, 0.5);
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+
+            // Если используется SVG или font icon
+            svg,
+            i {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        // Текстовые подсказки
+        .file-upload-text {
+            text-align: center;
+            color: $text-color;
+            transition: all 0.3s ease;
+
+            .file-upload-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: $indigo-dark;
+                margin-bottom: 8px;
+                font-family: $font-family-accent;
+            }
+
+            .file-upload-subtitle {
+                font-size: 14px;
+                color: $text-color;
+                opacity: 0.7;
+            }
+        }
+
+        // ====================
+        // FILE CARDS (СТАТУС БЛОК)
+        // ====================
+
+        .file-upload-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .file-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #fff;
+            border: 2px solid $border-color;
+            border-radius: $border-radius-button;
+            box-shadow: $box-shadow-card;
+            transition: all 0.3s ease;
+            opacity: 1;
+
+            &:hover {
+                border-color: rgba($indigo, 0.3);
+                box-shadow: $box-shadow-hover;
+                transform: translateY(-2px);
+
+                .file-card-delete {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Иконка файла
+        .file-card-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba($indigo, 0.1) 0%, rgba($indigo, 0.05) 100%);
+            font-size: 20px;
+        }
+
+        // Информация о файле
+        .file-card-info {
+            flex: 1;
+            min-width: 0; // Для корректного overflow
+        }
+
+        .file-card-name {
+            font-weight: 600;
+            color: $indigo-dark;
+            font-size: 14px;
+            margin-bottom: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .file-card-size {
+            font-size: 12px;
+            color: $text-color;
+            opacity: 0.7;
+            font-family: $font-family-mono;
+        }
+
+        // Кнопка удаления
+        .file-card-delete {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            color: $coral;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+                background: rgba($coral, 0.1);
+                transform: scale(1.1);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        // Multiple files support
+        input[type="file"][multiple]+.file-upload-zone {
+            .file-upload-subtitle::after {
+                content: " (можно выбрать несколько)";
+                font-weight: 600;
+                color: $indigo;
+            }
+        }
+
+        // ====================
+        // QUICK EDIT MODAL
+        // ====================
+
+        // Фон модального окна
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        // Контейнер модального окна
+        .modal-content {
+            width: 400px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        // Заголовок модального окна
+        .modal-title {
+            padding: 20px;
+            border-bottom: 1px solid #DEE2E6;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: $indigo-dark;
+            font-family: $font-family-accent;
+        }
+
+        // Тело модального окна
+        .modal-body {
+            padding: 20px;
+        }
+
+        // Футер модального окна
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #DEE2E6;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        // Кнопка сохранения
+        .modal-save-btn {
+            background-color: $teal;
+            color: #FFFFFF;
+            border: none;
+            border-radius: $border-radius-button;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: darken($teal, 10%);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba($teal, 0.3);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Кнопка отмены
+        .modal-cancel-btn {
+            background-color: transparent;
+            color: $text-color;
+            border: 2px solid $border-color;
+            border-radius: $border-radius-button;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: $indigo;
+                color: $indigo;
+                background-color: rgba($indigo, 0.05);
+            }
+        }
+
+        // ====================
+        // CRITICAL CONFIRMATION MODAL
+        // ====================
+
+        // Контейнер критического подтверждения
+        .confirm-modal {
+            width: 350px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            border-top: 5px solid $coral;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 30px;
+        }
+
+        // Иконка предупреждения
+        .warn-icon {
+            color: $coral;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        // Заголовок подтверждения
+        .confirm-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: $indigo-dark;
+            margin-bottom: 15px;
+            font-family: $font-family-accent;
+        }
+
+        // Текст подтверждения
+        .confirm-text {
+            color: $text-color;
+            font-size: 1em;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        // Кнопки подтверждения
+        .confirm-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        // Кнопка "Да" (опасная)
+        .confirm-yes-btn {
+            background-color: $coral;
+            color: #FFFFFF;
+            border: none;
+            border-radius: $border-radius-button;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: darken($coral, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba($coral, 0.4);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Кнопка "Нет" (безопасная)
+        .confirm-no-btn {
+            background-color: transparent;
+            color: $text-color;
+            border: 2px solid $border-color;
+            border-radius: $border-radius-button;
+            padding: 12px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: $indigo;
+                color: $indigo;
+                background-color: rgba($indigo, 0.05);
+            }
+        }
+
+        // ====================
+        // FEATURE SPOTLIGHT BANNER
+        // ====================
+
+        // Контейнер баннера
+        .feature-banner {
+            background-color: rgba($teal, 0.08);
+            border: 1px solid $teal;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba($teal, 0.1);
+            transition: all 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 4px 16px rgba($teal, 0.2);
+                transform: translateY(-2px);
+            }
+        }
+
+        // Иконка фичи
+        .feature-icon {
+            color: $teal;
+            font-size: 4em;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        // Контент баннера
+        .feature-content {
+            flex: 1;
+        }
+
+        // Заголовок фичи
+        .feature-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: darken($teal, 40%);
+            margin-bottom: 10px;
+            font-family: $font-family-accent;
+        }
+
+        // Описание фичи
+        .feature-description {
+            color: $text-color;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        // Кнопка CTA
+        .feature-cta-btn {
+            background-color: #FFC107;
+            color: #212529;
+            border: none;
+            border-radius: $border-radius-button;
+            padding: 12px 25px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+            &:hover {
+                background-color: darken(#FFC107, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(#FFC107, 0.4);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Вариант компактного баннера
+        .feature-banner.compact {
+            padding: 15px;
+
+            .feature-icon {
+                font-size: 2.5em;
+                margin-right: 15px;
+            }
+
+            .feature-title {
+                font-size: 1.3em;
+                margin-bottom: 5px;
+            }
+
+            .feature-description {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            .feature-cta-btn {
+                padding: 8px 18px;
+                font-size: 0.9em;
+            }
+        }

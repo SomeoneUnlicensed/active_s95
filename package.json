@@ -1,6 +1,6 @@
 {
   "name": "active_s95",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Responsive Theme for ActiveAdmin made special for S95",
   "main": "app/assets/javascripts/active_s95/main.js",
   "files": [
