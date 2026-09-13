@@ -1,0 +1,5 @@
+# Non-executable fixture for documentation and integration tests.
+application: demo_active_admin
+stylesheet: active_admin.scss
+javascript: active_admin.js
+theme: active_s95
