@@ -1,121 +1,93 @@
-#  Active S95
+# Active S95
 
-[![Gem Version](https://badge.fury.io/rb/active_s95.svg)](https://rubygems.org/gems/active_s95)
+Active S95 is a theme for [ActiveAdmin](https://activeadmin.info/) applications.
 
-##  Installation
+## Installation
 
-Add this line to your application's Gemfile:
+Add the gem to your Gemfile:
 
 ```ruby
-gem 'active_s95'
+gem "active_s95"
 ```
 
-Then execute:
+Then run:
 
 ```bash
 bundle install
 ```
 
-Or install it yourself:
+Or install it directly:
 
 ```bash
 gem install active_s95
 ```
 
-##  Usage
+## Usage
 
-### Basic Setup
-
-In your ActiveAdmin stylesheet (`app/assets/stylesheets/active_admin.scss`), replace the default import with:
+Import the theme in your ActiveAdmin stylesheet:
 
 ```scss
 @import "active_s95";
 ```
 
-### JavaScript Setup
-
-In your ActiveAdmin JavaScript file (`app/assets/javascripts/active_admin.js`), add:
+Load the theme JavaScript in your ActiveAdmin asset entrypoint:
 
 ```javascript
 //= require active_s95/main
 ```
 
-That's it! Your ActiveAdmin interface will now use the Active S95 theme.
+### Customizing styles
 
-
-
-### Overriding Styles
-
-You can customize the theme by adding your own styles after the import:
+Place overrides after the theme import:
 
 ```scss
 @import "active_s95";
 
-// Your custom overrides
 .active_admin {
-  // Custom styles here
+  // Application-specific styles.
 }
 ```
 
-### Color Scheme
+Keep application overrides in your own asset files so upgrades remain easy to review.
 
-The theme uses a carefully crafted color palette. You can override variables before importing:
+## Development
 
-```scss
-// Define your custom colors
-$primary-color: #your-color;
-$secondary-color: #your-color;
+Requirements:
 
-@import "active_s95";
-```
+- Ruby 2.5 or newer
+- Bundler
+- ActiveAdmin 1.1.0–3.x
+- Node.js and Yarn (or npm) for asset tasks
 
-##  Development
-
-### Prerequisites
-
-- Ruby 2.5+
-- Bundler ~> 1.5
-- ActiveAdmin >= 1.1.0
-
-### Setup
-
-Clone the repository:
+Setup:
 
 ```bash
 git clone https://github.com/SomeoneUnlicensed/active_s95.git
 cd active_s95
-```
-
-Install dependencies:
-
-```bash
 bundle install
-yarn install  # or npm install
+yarn install
 ```
 
-### Building
-
-To prepare the package for publishing:
+Build package assets with:
 
 ```bash
 yarn prepublishOnly
 ```
 
-This will copy assets to the `src` directory for distribution.
+## Project guide
 
-##  Requirements
+- `docs/` contains contributor-facing documentation and examples.
+- `examples/` contains small, copyable integration snippets.
+- `test/` contains non-destructive documentation and smoke-test fixtures.
 
-- **ActiveAdmin**: 1.1.0 - 3.x
-- **Font Awesome Sass**: ~> 6.0
-- **Ruby**: 2.5+
+## Contributing
 
-##  Contributing
+1. Create a feature branch.
+2. Make a focused change.
+3. Run the available checks.
+4. Commit with a descriptive message.
+5. Open a Pull Request with a summary and testing notes.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## License
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
+See the repository license file for licensing information.
